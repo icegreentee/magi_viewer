@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+        <meta name="referrer" content="never" />
+        <meta name="robots" content="none" />
+        <!--link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" /-->
+        <link href="css/background.css" rel="stylesheet" />
+        <title>Magireco Live2d Viewer 4.0 Beta</title>
+        <style>
+            body { margin: 0; }
+            #top {
+                position: fixed;
+                right: 0; bottom: 0;
+                font-size: 5em;
+                z-index: 10;
+                border: none;
+                background: none;
+                line-height: .5em;
+                cursor: pointer;
+            }
+        </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+        <script src="lib/live2dcubismcore.min.js"></script>
+        <!-- <script src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js" crossorigin="anonymous"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/6.3.0/browser/pixi.min.js" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/pixi-live2d-display@0.3.1/dist/cubism4.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div>
+            <select id="char"></select>
+            <select id="custom"></select>
+            <button onclick="capture()" title="hotkey: CapsLock">Capture</button>
+            <button onclick="triggerF()">(un)follow</button>
+            <input id="width" type="number" value="1280" style="width:4em;" />*<input id="height" type="number" value="1600" style="width:4em;" />
+            <button onclick="resize()">reload/resize</button>
+            <label id="Lzoom">Zoom: 50%</label>
+            <input id="zoom" type="range" min="1" max="100" value="50" />
+            <button id="background">Background</button>
+        </div>
+        <div id="function">
+            <div id="g1">
+                Expression:&nbsp;
+                <select class="exp"></select>
+                <button class="exp">play</button>
+                Motion:&nbsp;
+                <select class="motion"></select>
+                <button class="motion">play</button>
+                Voice:&nbsp;
+                <select class="voice"></select>
+                <button class="replay">(re)play</button>
+                <button class="pause">pause</button>
+		<a href="https://github.com/y2361547758/magiLive2d">@GitHub</a>
+            </div>
+        </div>
+        <div><canvas id="canvas" style="width: 450px;"></canvas></div>
+        <div><span id="top" onclick="window.scroll(0,0)">^</span></div>
+        <div class="background" style="display: none">
+            <div class="web_00110 shizuku_400_01"></div>
+            <div class="web_00110 shizuku_400_02"></div>
+            <div class="web_00110 myp_sky_fune"></div>
+            <div class="web_00110 kumo_04"></div>
+            <div class="web_00110 kumo_05"></div>
+            <div class="web_00110 kumo_07"></div>
+            <div class="web_00110 kumo_08"></div>
+            <div class="web_00110 bill01"></div>
+            <div class="web_00110 sora"></div>
+            <div class="web_00111 sora03"></div>
+            <div class="web_00111 sora02"></div>
+        </div>
+        <script src="js/live2d.js"></script>
+        <script src="js/page.js"></script>
+    </body>
+</html>
