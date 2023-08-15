@@ -135,7 +135,7 @@ function add_chara_list(){
 	current_chara= "1001"
 	current_chara_rank= 1
 	for(let i in chara_data){
-		$("#chara_head_list").append(gen_chara(i,chara_data[i]["attr"],chara_data[i]["defaultRank"]))
+		$("#chara_head_list").append(gen_chara(i,chara_data[i]["attr"].toLowerCase(),chara_data[i]["defaultRank"]))
 		$("#char_head_"+i).on("click",function(){
 			if(i!=current_chara){
 				$("#char_head_"+current_chara+"_select").css("display","none");
@@ -148,14 +148,14 @@ function add_chara_list(){
 				nowScene.addChild(new charaLayer(),0,1)
 				char_left_load()
 				$("#char_card_c").attr("src","./image_native/card/image/card_"+current_chara+chara_data[current_chara]["defaultRank"]+"_c.png")
-				$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"]+"_rank_"+chara_data[current_chara]["defaultRank"]+".png")
+				$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"].toLowerCase()+"_rank_"+chara_data[current_chara]["defaultRank"]+".png")
 				if(fav_char_id==current_chara){
 					$("#favorite_set").attr("src","./image_web/page/chara/conf_leader_on.png");
 				}else{
 					$("#favorite_set").attr("src","./image_web/page/chara/conf_leader_off.png");
 				}
 				$("#char_card_c").attr("src","./image_native/card/image/card_"+current_chara+current_chara_rank+"_c.png")
-				$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"]+"_rank_"+current_chara_rank+".png")
+				$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"].toLowerCase()+"_rank_"+current_chara_rank+".png")
 			}	
 		})
 	}
@@ -164,7 +164,7 @@ function add_chara_list(){
 }
 function char_left_load(){
 	$("#chara_name").text(chara_data[current_chara]["cn"])
-	$("#chara_attr").attr("src","./image_web/common/chara/att_"+chara_data[current_chara]["attr"]+"_f.png")
+	$("#chara_attr").attr("src","./image_web/common/chara/att_"+chara_data[current_chara]["attr"].toLowerCase()+"_f.png")
 	let d_rank=chara_data[current_chara]["defaultRank"]
 	let m_rank=chara_data[current_chara]["maxRank"]
 	for(let i=1;i<=5;i++){
@@ -175,17 +175,17 @@ function char_left_load(){
 		}
 	}
 	
-	$("#chara_rank1_attr_bg").attr("src","./image_native/card/frame/bg_"+chara_data[current_chara]["attr"]+".png")
-	$("#chara_rank2_attr_bg").attr("src","./image_native/card/frame/bg_"+chara_data[current_chara]["attr"]+".png")
-	$("#chara_rank3_attr_bg").attr("src","./image_native/card/frame/bg_"+chara_data[current_chara]["attr"]+".png")
-	$("#chara_rank4_attr_bg").attr("src","./image_native/card/frame/bg_"+chara_data[current_chara]["attr"]+".png")
-	$("#chara_rank5_attr_bg").attr("src","./image_native/card/frame/bg_"+chara_data[current_chara]["attr"]+".png")
+	$("#chara_rank1_attr_bg").attr("src","./image_native/card/frame/bg_"+chara_data[current_chara]["attr"].toLowerCase()+".png")
+	$("#chara_rank2_attr_bg").attr("src","./image_native/card/frame/bg_"+chara_data[current_chara]["attr"].toLowerCase()+".png")
+	$("#chara_rank3_attr_bg").attr("src","./image_native/card/frame/bg_"+chara_data[current_chara]["attr"].toLowerCase()+".png")
+	$("#chara_rank4_attr_bg").attr("src","./image_native/card/frame/bg_"+chara_data[current_chara]["attr"].toLowerCase()+".png")
+	$("#chara_rank5_attr_bg").attr("src","./image_native/card/frame/bg_"+chara_data[current_chara]["attr"].toLowerCase()+".png")
 	
-	$("#chara_rank1_attr").attr("src","./image_native/card/frame/att_"+chara_data[current_chara]["attr"]+".png")
-	$("#chara_rank2_attr").attr("src","./image_native/card/frame/att_"+chara_data[current_chara]["attr"]+".png")
-	$("#chara_rank3_attr").attr("src","./image_native/card/frame/att_"+chara_data[current_chara]["attr"]+".png")
-	$("#chara_rank4_attr").attr("src","./image_native/card/frame/att_"+chara_data[current_chara]["attr"]+".png")
-	$("#chara_rank5_attr").attr("src","./image_native/card/frame/att_"+chara_data[current_chara]["attr"]+".png")
+	$("#chara_rank1_attr").attr("src","./image_native/card/frame/att_"+chara_data[current_chara]["attr"].toLowerCase()+".png")
+	$("#chara_rank2_attr").attr("src","./image_native/card/frame/att_"+chara_data[current_chara]["attr"].toLowerCase()+".png")
+	$("#chara_rank3_attr").attr("src","./image_native/card/frame/att_"+chara_data[current_chara]["attr"].toLowerCase()+".png")
+	$("#chara_rank4_attr").attr("src","./image_native/card/frame/att_"+chara_data[current_chara]["attr"].toLowerCase()+".png")
+	$("#chara_rank5_attr").attr("src","./image_native/card/frame/att_"+chara_data[current_chara]["attr"].toLowerCase()+".png")
 	
 	$("#chara_rank1_head").attr("src","./image_native/card/image/card_"+current_chara+"1_f.png")
 	$("#chara_rank2_head").attr("src","./image_native/card/image/card_"+current_chara+"2_f.png")
@@ -212,7 +212,7 @@ function char_page(){
 	char_left_load()
 	$("#char_head_"+current_chara+"_select").css("display","block")
 	$("#char_card_c").attr("src","./image_native/card/image/card_"+current_chara+current_chara_rank+"_c.png")
-	$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"]+"_rank_"+current_chara_rank+".png")
+	$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"].toLowerCase()+"_rank_"+current_chara_rank+".png")
 	$(".main").hide()
 	$(".char").show()
 	window.mini_res="./image_native/mini/anime_v2/mini_100100_r.ExportJson"
@@ -245,7 +245,7 @@ $("#chara_rank1").on("click",function(){
 		current_chara_rank=1
 		$("#chara_rank"+current_chara_rank+"_select").show()
 		$("#char_card_c").attr("src","./image_native/card/image/card_"+current_chara+current_chara_rank+"_c.png")
-		$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"]+"_rank_"+current_chara_rank+".png")
+		$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"].toLowerCase()+"_rank_"+current_chara_rank+".png")
 		if(fav_char_id==current_chara){
 			fav_char_rank=1
 		}
@@ -257,7 +257,7 @@ $("#chara_rank2").on("click",function(){
 		current_chara_rank=2
 		$("#chara_rank"+current_chara_rank+"_select").show()
 		$("#char_card_c").attr("src","./image_native/card/image/card_"+current_chara+current_chara_rank+"_c.png")
-		$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"]+"_rank_"+current_chara_rank+".png")
+		$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"].toLowerCase()+"_rank_"+current_chara_rank+".png")
 		if(fav_char_id==current_chara){
 			fav_char_rank=2
 		}
@@ -269,7 +269,7 @@ $("#chara_rank3").on("click",function(){
 		current_chara_rank=3
 		$("#chara_rank"+current_chara_rank+"_select").show()
 		$("#char_card_c").attr("src","./image_native/card/image/card_"+current_chara+current_chara_rank+"_c.png")
-		$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"]+"_rank_"+current_chara_rank+".png")
+		$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"].toLowerCase()+"_rank_"+current_chara_rank+".png")
 		if(fav_char_id==current_chara){
 			fav_char_rank=3
 		}
@@ -281,7 +281,7 @@ $("#chara_rank4").on("click",function(){
 		current_chara_rank=4
 		$("#chara_rank"+current_chara_rank+"_select").show()
 		$("#char_card_c").attr("src","./image_native/card/image/card_"+current_chara+current_chara_rank+"_c.png")
-		$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"]+"_rank_"+current_chara_rank+".png")
+		$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"].toLowerCase()+"_rank_"+current_chara_rank+".png")
 		if(fav_char_id==current_chara){
 			fav_char_rank=4
 		}
@@ -293,7 +293,7 @@ $("#chara_rank5").on("click",function(){
 		current_chara_rank=5
 		$("#chara_rank"+current_chara_rank+"_select").show()
 		$("#char_card_c").attr("src","./image_native/card/image/card_"+current_chara+current_chara_rank+"_c.png")
-		$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"]+"_rank_"+current_chara_rank+".png")
+		$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"].toLowerCase()+"_rank_"+current_chara_rank+".png")
 		if(fav_char_id==current_chara){
 			fav_char_rank=5
 		}
