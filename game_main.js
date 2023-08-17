@@ -4,8 +4,8 @@ let customs=[]
 let last_canvas_data=null
 let current_chara= "1001"
 let current_chara_rank= 1
-let fav_char_id="1001"
-let fav_char_rank=1
+let fav_char_id="1502"
+let fav_char_rank=4
 
 var desin_data={
     "width":1707,
