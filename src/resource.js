@@ -608,6 +608,13 @@ var chara_data={
         "defaultRank": 4,
         "maxRank": 5
     },
+	"1502": {
+	    "cn": "七海八千代（历史ver.）",
+	    "attr": "WATER",
+	    "defaultCardId": 15024,
+	    "defaultRank": 4,
+	    "maxRank": 5
+	},
     "1601": {
         "cn": "∞伊吕波",
         "attr": "LIGHT",
@@ -1669,6 +1676,8 @@ var pre_res=[
     "./image_native/mini/anime_v2/mini_140200_r0.plist",
     "./image_native/mini/anime_v2/mini_150100_r.ExportJson",
     "./image_native/mini/anime_v2/mini_150100_r0.plist",
+	"./image_native/mini/anime_v2/mini_150200_r.ExportJson",
+	"./image_native/mini/anime_v2/mini_150200_r0.plist",
     "./image_native/mini/anime_v2/mini_160100_r.ExportJson",
     "./image_native/mini/anime_v2/mini_160100_r0.plist",
     "./image_native/mini/anime_v2/mini_170100_r.ExportJson",

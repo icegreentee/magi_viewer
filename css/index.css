@@ -13,6 +13,8 @@ div {
 	font-family: "magi";
 	color: #FFF1A4;
 }
+
+
 @media all and (orientation: portrait) {
         html, body {
             position: relative;
