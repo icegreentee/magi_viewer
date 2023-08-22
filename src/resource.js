@@ -727,6 +727,13 @@ var chara_data={
         "defaultRank": 4,
         "maxRank": 5
     },
+    "2202": {
+        "cn": "恶魔焰",
+        "attr": "DARK",
+        "defaultCardId": 22024,
+        "defaultRank": 4,
+        "maxRank": 5
+    },
     "2203": {
         "cn": "晓美焰（晴着ver.）",
         "attr": "DARK",
@@ -1710,6 +1717,8 @@ var pre_res=[
     "./image_native/mini/anime_v2/mini_210600_r0.plist",
     "./image_native/mini/anime_v2/mini_220100_r.ExportJson",
     "./image_native/mini/anime_v2/mini_220100_r0.plist",
+    "./image_native/mini/anime_v2/mini_220200_r.ExportJson",
+    "./image_native/mini/anime_v2/mini_220200_r0.plist",
     "./image_native/mini/anime_v2/mini_220300_r.ExportJson",
     "./image_native/mini/anime_v2/mini_220300_r0.plist",
     "./image_native/mini/anime_v2/mini_230000_r.ExportJson",
@@ -1943,12 +1952,10 @@ var pre_res2=[
 			"./package/web/web_ef_unit_marker/web_ef_unit_marker.ExportJson",
 			"./package/web/web_ef_unit_marker/web_ef_unit_marker0.plist",
 			//mini
-			"./image_native/mini/anime_v2/mini_100101_r.ExportJson",
-    "./image_native/mini/anime_v2/mini_100101_r0.plist",
-    "./image_native/mini/anime_v2/mini_100100_r.ExportJson",
-    "./image_native/mini/anime_v2/mini_100100_r0.plist",
-    "./image_native/mini/anime_v2/mini_100200_r.ExportJson",
-    "./image_native/mini/anime_v2/mini_100200_r0.plist"
+			"./image_native/mini/anime_v2/mini_220200_r.ExportJson",
+            "./image_native/mini/anime_v2/mini_220200_r0.plist",
+            "./image_native/mini/anime_v2/mini_100100_r.ExportJson",
+            "./image_native/mini/anime_v2/mini_100100_r0.plist",
 		    ]
 
 

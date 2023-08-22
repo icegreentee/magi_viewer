@@ -36,6 +36,7 @@ function init(x, y) {
     const option = {
         width: x,
         height: y,
+//    resizeTo: window,
         transparent: true,
         preserveDrawingBuffer: true,    // to capture
         view: document.getElementById("canvas"),
@@ -61,8 +62,10 @@ async function _show(model) {
         motionFadingDuration: 0,
         idleMotionFadingDuration: 0
     });
+    console.log(live2dSprite)
     app.stage.addChild(live2dSprite);
     live2dSprite.scale.set(0.5, 0.5);
+    live2dSprite.x=400
     console.log(live2dSprite.internalModel.motionManager)
     live2dSprite.internalModel.motionManager.expressionManager.setRandomExpression();
     live2dSprite.internalModel.motionManager.startRandomMotion("Motion");
