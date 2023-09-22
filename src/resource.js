@@ -1476,6 +1476,20 @@ var chara_data={
         "defaultRank": 3,
         "maxRank": 5
     },
+    "4061": {
+        "cn": "锦木千束",
+        "attr": "LIGHT",
+        "defaultCardId": 40614,
+        "defaultRank": 4,
+        "maxRank": 5
+    },
+    "4062": {
+        "cn": "井上泷奈",
+        "attr": "DARK",
+        "defaultCardId": 40624,
+        "defaultRank": 4,
+        "maxRank": 5
+    },
     "4121": {
         "cn": "伊莎贝拉（魔女ver.）",
         "attr": "DARK",
@@ -1931,6 +1945,10 @@ var pre_res=[
     "./image_native/mini/anime_v2/mini_405200_r0.plist",
     "./image_native/mini/anime_v2/mini_405300_r.ExportJson",
     "./image_native/mini/anime_v2/mini_405300_r0.plist",
+    "./image_native/mini/anime_v2/mini_406100_r.ExportJson",
+    "./image_native/mini/anime_v2/mini_406100_r0.plist",
+    "./image_native/mini/anime_v2/mini_406200_r.ExportJson",
+    "./image_native/mini/anime_v2/mini_406200_r0.plist",
     "./image_native/mini/anime_v2/mini_412100_r.ExportJson",
     "./image_native/mini/anime_v2/mini_412100_r0.plist",
     "./image_native/mini/anime_v2/mini_412200_r.ExportJson",
