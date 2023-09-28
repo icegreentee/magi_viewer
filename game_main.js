@@ -1,12 +1,17 @@
-let char_id = "1001"
-let custom_index =0
-let customs=[]
 let last_canvas_data=null
+//当前角色
 let current_chara= "1001"
 let current_chara_rank= 1
+//主角色
 let fav_char_id="4061"
 let fav_char_rank=4
-
+let customs=[]
+let custom_index =0
+//副角色
+let customs2=[]
+let custom2_index =0
+let fav2_char_id="4062"
+let is_show_fav2=true
 var desin_data={
     "width":1707,
     "height":910,
@@ -28,19 +33,30 @@ $(window).resize( function  () {
 	adjust_page();
 })
 
-
+//位移
+//        lastChild = app.stage.children[0]
+//        lastChild.x-=200
 function loadLive2d(){
 	init(2280,1520);
+	//获取服装目录
 	fetchLocal("./jsons/list.json").then(r => r.json(), alert)
 	.then(list => {
 	    customs = Object.keys(list[fav_char_id])
-	    let lastChild = null;
+	    customs2 = Object.keys(list[fav2_char_id])
+//	    let lastChild = null;
 		custom_index =0
+		custom2_index =0
 	    show_live2d()
 	$("#change_custom").unbind("click")
 	$("#change_custom").click(function(){
 	    custom_index+=1
 	    custom_index=custom_index%customs.length
+	    show_live2d()
+	})
+	$("#change_custom2").unbind("click")
+	$("#change_custom2").click(function(){
+	    custom2_index+=1
+	    custom2_index=custom2_index%customs2.length
 	    show_live2d()
 	})
 	});
@@ -96,8 +112,17 @@ function adjust_page(){
 function show_live2d(){
     let lastChild = null;
     while (lastChild = app.stage.children.shift()) { lastChild.destroy(); }
-    show("./image_native/live2d_v4/"+customs[custom_index]+"/", "model.model3.json", function(model) {
-        });
+    if(is_show_fav2){
+        show("./image_native/live2d_v4/"+customs[custom_index]+"/", "model.model3.json", 0,function(model) {
+            });
+        show("./image_native/live2d_v4/"+customs2[custom2_index]+"/", "model.model3.json", 600,function(model) {
+            });
+    }
+    else{
+        show("./image_native/live2d_v4/"+customs[custom_index]+"/", "model.model3.json", 300, function(model) {
+            });
+    }
+
 }
 
 
@@ -153,6 +178,11 @@ function add_chara_list(){
 					$("#favorite_set").attr("src","./image_web/page/chara/conf_leader_on.png");
 				}else{
 					$("#favorite_set").attr("src","./image_web/page/chara/conf_leader_off.png");
+				}
+				if(fav2_char_id==current_chara){
+					$("#favorite2_set").attr("src","./image_web/page/chara/conf_leader_on.png");
+				}else{
+					$("#favorite2_set").attr("src","./image_web/page/chara/conf_leader_off.png");
 				}
 				$("#char_card_c").attr("src","./image_native/card/image/card_"+current_chara+current_chara_rank+"_c.png")
 				$("#char_card_f").attr("src","./image_native/card/frame/frame_"+chara_data[current_chara]["attr"].toLowerCase()+"_rank_"+current_chara_rank+".png")
@@ -229,6 +259,11 @@ function main_page(){
 	window.bg_res="./image_native/bg/web/web_0011.ExportJson"
 	window.bg_name="web_0011"
 	cc.director.runScene(new cc.TransitionFade(0.2,new bgScene()));
+	if(is_show_fav2){
+	        $("#change_custom2").show()
+	    }else{
+	        $("#change_custom2").hide()
+	    }
 }
 
 $("#back_main").on("click",function(){
@@ -306,4 +341,21 @@ $("#favorite_set").on("click",function(){
 		fav_char_rank=current_chara_rank
 		loadLive2d()
 	}
+})
+$("#favorite2_set").on("click",function(){
+	if(fav2_char_id!=current_chara){
+		$("#favorite2_set").attr("src","./image_web/page/chara/conf_leader_on.png");
+		fav2_char_id=current_chara
+//		fav_char_rank=current_chara_rank
+		loadLive2d()
+	}
+})
+$("#show_char2").click(function(){
+	    is_show_fav2=!is_show_fav2
+	    if(is_show_fav2){
+	        $("#change_custom2").show()
+	    }else{
+	        $("#change_custom2").hide()
+	    }
+	    show_live2d()
 })

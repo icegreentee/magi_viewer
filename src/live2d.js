@@ -21,12 +21,12 @@ async function check_texture(base, data) {
     return data
 }
 // AJAX get
-function getModel(path, model, callback, callback2) {
+function getModel(path, model,  pos_x,callback, callback2) {
     return fetchLocal(path + model)
     .then(r => r.json(), alert)
     .then(data => check_texture(path, data), alert)
     .then(data => {
-        callback(setpath(data, path + model))
+        callback(setpath(data, path + model), pos_x)
         callback2(data.FileReferences)
     }, alert)
 }
@@ -48,7 +48,7 @@ function init(x, y) {
     // const sprite = new PIXI.Sprite.fromImage("./7_room2_a.jpg");
     // stage.addChild(sprite);
 }
-async function _show(model) {
+async function _show(model, pos_x) {
     const settings = new PIXI.live2d.Cubism4ModelSettings(model);
     const live2dSprite = await PIXI.live2d.Live2DModel.from(settings, {
         eyeBlink: true,
@@ -62,10 +62,9 @@ async function _show(model) {
         motionFadingDuration: 0,
         idleMotionFadingDuration: 0
     });
-    console.log(live2dSprite)
     app.stage.addChild(live2dSprite);
     live2dSprite.scale.set(0.5, 0.5);
-    live2dSprite.x=400
+    live2dSprite.x=pos_x
     console.log(live2dSprite.internalModel.motionManager)
     live2dSprite.internalModel.motionManager.expressionManager.setRandomExpression();
     live2dSprite.internalModel.motionManager.startRandomMotion("Motion");
@@ -80,7 +79,5 @@ async function _show(model) {
 	    live2dSprite.internalModel.motionManager.expressionManager.setRandomExpression();
 	    live2dSprite.internalModel.motionManager.startRandomMotion("Motion");
 	});
-
-
 }
-function show(path, model, callback) { getModel(path, model, _show, callback); }
+function show(path, model, pos_x,callback) {getModel(path, model,  pos_x,_show, callback); }
